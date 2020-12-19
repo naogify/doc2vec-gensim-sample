@@ -4,6 +4,16 @@ import MeCab
 import os
 import pdb
 
+# 標準出力（ターミナル）をut-f8に指定する。デバッグ用。
+# https://hodalog.com/about-unicodeencodeerror-using-japanese-in-python-code/
+import io,sys
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+# Mecabの解析結果から語幹を抽出する関数
+# 通常は「すべて自分のほうへ」の入力に対して、次のような結果を返す。
+# ['すべて\t名詞,副詞可能,*,*,*,*,すべて,スベテ,スベテ', '自分\t名詞,一般,*,*,*,*,自分,ジブン,ジブン', 'の\t助詞,連体化,*,*,*,*,の,ノ,ノ', 'ほう\t名詞,非自立,一般,*,*,*,ほう,ホウ,ホー', 'へ\t助詞,格助詞,一般,*,*,*,へ,ヘ,エ', 'EOS', '']
+# そこから、
+# ['すべて', '自分', 'の', 'ほう', 'へ']を抽出する。
 def _split_to_words(text, to_stem=False):
     """
     入力: 'すべて自分のほうへ'
@@ -43,4 +53,4 @@ def stems(text):
     return stems
 
 
-stems('すべて自分のほうへ')
+print(stems('すべて自分のほうへ'))
