@@ -52,5 +52,5 @@ def stems(text):
     stems = _split_to_words(text, to_stem=True)
     return stems
 
-
-print(stems('すべて自分のほうへ'))
+# stemsのデバッグ用
+# print(stems('すべて自分のほうへ'))
