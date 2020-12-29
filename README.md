@@ -1,6 +1,6 @@
-# sample-of-word2vec
+# doc2vec-gensim-sample
 
-Tutorial for Word2Vec.
+Tutorial for Doc2Vec.
 
 Based on https://qiita.com/naotaka1128/items/2c4551abfd40e43b0146.
 
