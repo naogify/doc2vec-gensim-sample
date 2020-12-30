@@ -8,9 +8,9 @@ Based on https://qiita.com/naotaka1128/items/2c4551abfd40e43b0146.
 ## Run Docker
 
 1. build image  
-`$ docker build -t word2vec:1.0 .`
+`$ docker build -t doc2vec:1.0 .`
 2. run container  
-`$ docker run -it -p 8888:8888 -v ~/Desktop/word2vec-gensim-sample:/home word2vec:1.0`
+`$ docker run -it -p 8888:8888 -v ~/Desktop/doc2vec-gensim-sample:/home doc2vec:1.0`
 
 More info about docker  
 https://github.com/naogify/python3-mecab-neologd-dockerfile/blob/master/README.md

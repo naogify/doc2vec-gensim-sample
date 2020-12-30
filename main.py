@@ -1,5 +1,6 @@
 import sys
 sys.path.append("./")
+
 # クチコミデータの読み込み
 import data
 rows = data.rows
@@ -40,10 +41,13 @@ model.build_vocab(sentences)
 # Wikipedia から学習させた単語ベクトルを無理やり適用して利用することも出来ます
 # model.intersect_word2vec_format('./data/wiki/wiki2vec.bin', binary=True)
 
-total_examples = sum([len(doc) for doc in docs])
 
 # 学習実行
-model.train(sentences, total_examples)
+model.train(
+    sentences,
+    total_examples = len(rows),
+    epochs = model.epochs,
+)
 
 # セーブ
 model.save('./data/doc2vec.model')
