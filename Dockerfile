@@ -1,6 +1,7 @@
 #ベースイメージ
 FROM ubuntu:18.04
 
+#イメージ作成時にRUNで事前にコマンドラインを実行できる
 RUN apt-get update \
     && apt-get install -y mecab \
     && apt-get install -y libmecab-dev \
@@ -11,7 +12,15 @@ RUN apt-get update \
     && apt-get install -y xz-utils\
     && apt-get install -y file\
     && apt-get install -y sudo\
-    && apt-get install -y wget
+    && apt-get install -y wget\
+    && apt-get install -y language-pack-ja-base\
+    && apt-get install -y language-pack-ja\
+    && apt-get install -y locales
+
+#localeを日本語設定に変更
+RUN locale-gen ja_JP.UTF-8
+#言語を日本語に設定
+ENV LANG ja_JP.UTF-8
 
 RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git\
     && cd mecab-ipadic-neologd\

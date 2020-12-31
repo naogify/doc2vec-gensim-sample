@@ -11,7 +11,9 @@ companies = [row[0] for row in rows]
 docs = [stems(row[1]) for row in rows]
 
 # デバッグ用
+# print(companies)
 # print(docs)
+
 
 # ライブラリ読み込み
 from gensim import models
@@ -40,7 +42,6 @@ model.build_vocab(sentences)
 
 # Wikipedia から学習させた単語ベクトルを無理やり適用して利用することも出来ます
 # model.intersect_word2vec_format('./data/wiki/wiki2vec.bin', binary=True)
-
 
 # 学習実行
 model.train(
